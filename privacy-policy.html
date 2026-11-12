@@ -4,64 +4,183 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seika – Privacy Policy</title>
+  <meta name="description" content="How the Seika app collects, uses and shares your information, including the AI services behind Kai." />
+  <link rel="icon" type="image/png" href="assets/favicon-64.png" />
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #1a1a1a; line-height: 1.7; }
-    h1 { font-size: 2em; margin-bottom: .25em; }
-    h2 { font-size: 1.2em; margin-top: 2em; }
-    p, li { font-size: 1em; }
-    ul { padding-left: 1.4em; }
-    a { color: #93603e; }
-    footer { margin-top: 3em; font-size: .85em; color: #888; border-top: 1px solid #eee; padding-top: 1em; }
+    :root { --text: #1a1a1a; --muted: #5f5953; --copper: #93603e; --line: #ece7e2; --bg: #fffdfb; --card: #f7f3ef; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.7; font-size: 16.5px; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 72px; }
+    .home { display: inline-flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; font-weight: 600; }
+    .home img { width: 26px; height: 26px; border-radius: 7px; }
+    h1 { font-size: 2.1em; line-height: 1.2; margin: 32px 0 6px; }
+    .meta { color: var(--muted); margin: 0 0 28px; }
+    h2 { font-size: 1.25em; margin: 2.2em 0 .5em; }
+    h3 { font-size: 1.05em; margin: 1.5em 0 .3em; }
+    p, li { margin: .5em 0; }
+    ul { padding-left: 1.3em; }
+    a { color: var(--copper); }
+    .summary { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 6px 22px; }
+    table { width: 100%; border-collapse: collapse; margin: .8em 0; font-size: .95em; }
+    th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-weight: 600; font-size: .9em; }
+    .table-scroll { overflow-x: auto; }
+    footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid var(--line); color: var(--muted); font-size: .9em; }
   </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p>This privacy policy applies to the <strong>Seika</strong> app (hereby referred to as "Application") for mobile devices that was created by Ben Schumacher (hereby referred to as "Service Provider") as a Freemium service. This service is intended for use "AS IS".</p>
+  <div class="wrap">
+    <a class="home" href="./"><img src="assets/favicon-64.png" alt="" />Seika</a>
 
-  <h2>Information Collection and Use</h2>
-  <p>The Application collects information when you download and use it. This information may include:</p>
-  <ul>
-    <li>Your device's Internet Protocol address (e.g. IP address)</li>
-    <li>The pages of the Application that you visit, the time and date of your visit, the time spent on those pages</li>
-    <li>The time spent on the Application</li>
-    <li>The operating system you use on your mobile device</li>
-  </ul>
-  <p>The Application does not gather precise information about the location of your mobile device.</p>
-  <p>The Application uses Artificial Intelligence (AI) technologies to enhance user experience and provide certain features. The AI components may process user data to deliver personalized content, recommendations, or automated functionalities. All AI processing is performed in accordance with this privacy policy and applicable laws. If you have questions about the AI features or data processing, please contact the Service Provider.</p>
-  <p>The Service Provider may use the information you provided to contact you from time to time to provide you with important information, required notices and marketing promotions.</p>
-  <p>For a better experience, while using the Application, the Service Provider may require you to provide us with certain personally identifiable information, including but not limited to your email address. The information that the Service Provider requests will be retained by them and used as described in this privacy policy.</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective November 12, 2026</p>
 
-  <h2>Third Party Access</h2>
-  <p>Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.</p>
-  <p>The Service Provider may disclose User Provided and Automatically Collected Information:</p>
-  <ul>
-    <li>as required by law, such as to comply with a subpoena, or similar legal process;</li>
-    <li>when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;</li>
-    <li>with their trusted service providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.</li>
-  </ul>
+    <p>This policy explains what the Seika iPhone app ("Seika", "we", "us") collects, why, who it's shared with, and the choices you have. Seika is made by Ben Schumacher. If you have questions, email <a href="mailto:benschumacher15@gmail.com">benschumacher15@gmail.com</a>.</p>
 
-  <h2>Opt-Out Rights</h2>
-  <p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p>
+    <div class="summary">
+      <h2 style="margin-top:.8em">The short version</h2>
+      <ul>
+        <li>We collect what you put into Seika (habits, tasks, brain dumps, meetings) so the app can work and sync.</li>
+        <li><strong>Kai, the AI coach, uses outside AI providers.</strong> With your permission, text you give Kai is sent to Anthropic, and meeting audio is sent to OpenAI for transcription. You can turn this off anytime in Settings → Kai &amp; AI.</li>
+        <li>No ads. We never sell your data, and we don't track you across other apps or websites.</li>
+        <li>You can delete your account and its data from inside the app.</li>
+      </ul>
+    </div>
 
-  <h2>Data Retention Policy</h2>
-  <p>The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. If you'd like them to delete User Provided Data that you have provided via the Application, please contact them at <a href="mailto:benschumacher15@gmail.com">benschumacher15@gmail.com</a> and they will respond in a reasonable time.</p>
+    <h2>1. Information we collect</h2>
 
-  <h2>Children</h2>
-  <p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children. The Service Provider encourages all children to never submit any personally identifiable information through the Application and/or Services. Parents and legal guardians are encouraged to monitor their children's Internet usage and to help enforce this Policy by instructing their children never to provide personally identifiable information through the Application and/or Services without their permission. If you have reason to believe that a child has provided personally identifiable information to the Service Provider through the Application and/or Services, please contact the Service Provider at <a href="mailto:benschumacher15@gmail.com">benschumacher15@gmail.com</a>. You must also be at least 16 years of age to consent to the processing of your personally identifiable information in your country.</p>
+    <h3>Account information</h3>
+    <ul>
+      <li>Your email address and name. If you use Sign in with Apple, we receive the identifier and details Apple shares with us.</li>
+      <li>Your password, which is handled by our sign-in provider and stored only in hashed form.</li>
+      <li>Optional profile details you choose to add, such as an age group, plus your time zone and referral code.</li>
+    </ul>
 
-  <h2>Security</h2>
-  <p>The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.</p>
+    <h3>Content you create</h3>
+    <ul>
+      <li>Habits, check-ins, streaks, tasks, sub-tasks and day-planner blocks.</li>
+      <li>Brain dumps (the text you type, or the transcript of what you say) and the tasks extracted from them.</li>
+      <li>Meetings: the title, transcript, summary, takeaways and action items. Meeting audio is recorded on your device and sent for transcription (see section 3); we don't keep the audio on our servers.</li>
+      <li>Messages you send to Kai in the chat are used to generate a reply; we don't save the conversation on our servers.</li>
+    </ul>
 
-  <h2>Changes</h2>
-  <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
-  <p>This privacy policy is effective as of <strong>2026-04-21</strong>.</p>
+    <h3>Social features</h3>
+    <ul>
+      <li>Friends, friend requests, accountability partners, challenges you join, leaderboard scores, XP and trophies.</li>
+    </ul>
 
-  <h2>Your Consent</h2>
-  <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by us.</p>
+    <h3>Apple Health</h3>
+    <ul>
+      <li>If you give permission, Seika reads activity data such as steps, sleep and workouts from Apple Health to fill in your habits automatically, and may save your habit activity back to Apple Health. The values used to fill in a habit are saved with your habit history.</li>
+      <li>Health data is never used for advertising or marketing and is never sold. You can change these permissions anytime in the iPhone Settings app.</li>
+    </ul>
 
-  <h2>Contact Us</h2>
-  <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at <a href="mailto:benschumacher15@gmail.com">benschumacher15@gmail.com</a>.</p>
+    <h3>Calendar</h3>
+    <ul>
+      <li>If you choose to add a task to your calendar, Seika asks for Calendar access and creates that event on your device. Seika doesn't read or upload your existing calendar events.</li>
+    </ul>
 
-  <footer>Generated for Seika · Effective 2026-04-21</footer>
+    <h3>Voice</h3>
+    <ul>
+      <li>When you speak a brain dump, your voice is turned into text by Apple's speech recognition, which may process the audio on Apple's servers under Apple's own privacy policy.</li>
+    </ul>
+
+    <h3>Device and technical information</h3>
+    <ul>
+      <li>A push notification token, if you allow notifications.</li>
+      <li>Crash reports (device model, iOS version, app version and what the app was doing when it crashed), linked to your account ID so we can fix problems.</li>
+      <li>Simple usage counts used to apply daily limits, such as how many Kai requests and minutes of transcription you've used.</li>
+      <li>Our service providers receive your IP address when the app connects to them.</li>
+    </ul>
+
+    <h3>Purchases</h3>
+    <ul>
+      <li>Seika Pro subscriptions are processed by Apple. We receive your subscription status, never your payment details.</li>
+    </ul>
+
+    <p>Seika does not collect your precise location, contacts or photos.</p>
+
+    <h2>2. How we use it</h2>
+    <ul>
+      <li>To run Seika's features and keep your data in sync across sign-ins.</li>
+      <li>To power Kai's coaching, task extraction, meeting summaries and reports (with your permission; see below).</li>
+      <li>To send the notifications you've turned on, including nudges from accountability partners and friends.</li>
+      <li>To apply fair-use limits, prevent abuse, fix crashes and provide support.</li>
+      <li>To send important service messages, such as changes to this policy. We don't send marketing emails unless you've asked for them.</li>
+    </ul>
+
+    <h2>3. Kai and AI services</h2>
+    <p>Kai's AI features rely on two outside providers. <strong>Seika asks for your permission before sending anything to them</strong>, and you can turn AI features off or back on anytime in <strong>Settings → Kai &amp; AI</strong>. With AI features off, Kai chat, Brain Dump task extraction and meeting notes won't work; everything else in Seika does.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Provider</th><th>What's sent</th><th>When</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.anthropic.com/legal/privacy">Anthropic</a> (Claude)</td>
+            <td>Text you give Kai: brain dumps, chat messages, quick-add text and meeting transcripts, plus habit names and progress (which can include values from Apple Health) for tips and reports.</td>
+            <td>Only when you use a Kai feature, or when Seika prepares a tip or report for you.</td>
+          </tr>
+          <tr>
+            <td><a href="https://openai.com/policies/privacy-policy">OpenAI</a> (Whisper)</td>
+            <td>The audio of meetings you record.</td>
+            <td>Only when you record a meeting, to turn it into a transcript.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>This data is sent through Seika's own server, never directly from your phone with our keys. The providers process it to return a result to Seika under their API terms. We never use it for advertising.</p>
+
+    <h2>4. Who we share information with</h2>
+    <p>We never sell your personal information. We share it only as follows:</p>
+    <ul>
+      <li><strong>Service providers</strong> that run Seika for us:
+        <ul>
+          <li><a href="https://supabase.com/privacy">Supabase</a>: database, sign-in and server functions. Your data is stored in Canada.</li>
+          <li>Anthropic and OpenAI: AI features, only with your permission (section 3).</li>
+          <li><a href="https://firebase.google.com/support/privacy">Google Firebase Crashlytics</a>: crash reports.</li>
+          <li>Apple: Sign in with Apple, push notifications, purchases, speech recognition, Apple Health and Calendar.</li>
+        </ul>
+      </li>
+      <li><strong>Other Seika users</strong>, depending on the features you use:
+        <ul>
+          <li>Your name and photo are visible to your friends, people in the same challenges as you, and people you've sent a friend request to.</li>
+          <li>Habits you haven't marked private, and your XP history, are visible to your friends.</li>
+          <li>Your name and weekly score can appear on leaderboards, and your trophies and level can be seen by signed-in users.</li>
+          <li>Other users can find you by name in friend search. Your full email address is only shown to someone who already typed it exactly.</li>
+        </ul>
+      </li>
+      <li><strong>If Seika is sold or transferred.</strong> If the app is sold, merged or transferred to a new owner, your information may be transferred as part of that deal. The new owner must continue to protect it in line with this policy, and we'll tell you in the app or by email before your information becomes subject to a different policy.</li>
+      <li><strong>When required by law</strong>, or when we believe in good faith it's necessary to protect someone's safety, investigate fraud, or respond to a valid legal request.</li>
+    </ul>
+
+    <h2>5. How long we keep it</h2>
+    <p>We keep your information for as long as your account exists. When you delete your account (Settings → Delete Account), your account and the data linked to it are removed from our database. Copies may remain in routine backups for a limited time before those backups are overwritten. Crash reports are kept by Firebase according to its retention settings.</p>
+
+    <h2>6. Your choices and rights</h2>
+    <ul>
+      <li><strong>AI features:</strong> on or off in Settings → Kai &amp; AI.</li>
+      <li><strong>Notifications and Apple Health:</strong> manage them in Seika's Settings or in the iPhone Settings app.</li>
+      <li><strong>Private habits:</strong> mark a habit private to hide it from friends.</li>
+      <li><strong>Delete your account</strong> anytime from Settings → Delete Account.</li>
+      <li><strong>Access, correct or export your data</strong>, or ask any privacy question, by emailing <a href="mailto:benschumacher15@gmail.com">benschumacher15@gmail.com</a>. Depending on where you live (for example, under Canada's PIPEDA, the EU/UK GDPR or California law), you may have additional rights, and we'll honour them.</li>
+    </ul>
+
+    <h2>7. Security</h2>
+    <p>Data travels over encrypted connections. Each user's data is protected by access rules in our database so other users can only see what's described above, and the keys for our AI providers are kept on our server, never in the app. No system is perfectly secure, but we work to protect your information and will notify you if a breach affects you as required by law.</p>
+
+    <h2>8. Where your data is processed</h2>
+    <p>Seika's database is hosted in Canada. Our AI and crash-reporting providers may process data in the United States and other countries. Where required, we rely on appropriate safeguards for these transfers.</p>
+
+    <h2>9. Children</h2>
+    <p>Seika is rated 13+ on the App Store and isn't directed at children under 13. We don't knowingly collect information from children under 13. If you're under the age of digital consent where you live (16 in some countries), please use Seika only with a parent's or guardian's permission. If you believe a child has given us information, email us and we'll delete it.</p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>If we change this policy, we'll update the date at the top. For material changes, such as a new type of data shared with an AI provider, we'll let you know in the app and, where required, ask for your permission again.</p>
+
+    <h2>11. Contact</h2>
+    <p>Ben Schumacher · <a href="mailto:benschumacher15@gmail.com">benschumacher15@gmail.com</a></p>
+
+    <footer>Seika · Privacy Policy · Effective November 12, 2026 · <a href="./">Home</a> · <a href="terms.html">Terms &amp; Conditions</a></footer>
+  </div>
 </body>
 </html>
