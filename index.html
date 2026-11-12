@@ -3,18 +3,490 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seika – Legal</title>
+  <title>Seika — Habits, focus &amp; a real coach</title>
+  <meta name="description" content="Seika is an iPhone habit tracker with honest streaks, a voice Brain Dump, meeting summaries and Kai, a coach who knows when to push and when to back off." />
+  <meta name="apple-itunes-app" content="app-id=6767049121" />
+  <meta name="theme-color" content="#110f0e" />
+  <link rel="icon" type="image/png" href="assets/favicon-64.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Seika — Habits, focus &amp; a real coach" />
+  <meta property="og:description" content="Five-second logging, honest streaks, and Kai — a coach who knows when to push and when to back off." />
+  <meta property="og:image" content="https://benschumacher99.github.io/seika-legal/assets/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 500px; margin: 80px auto; padding: 0 20px; color: #1a1a1a; }
-    h1 { font-size: 1.8em; }
-    a { display: block; margin-top: 16px; color: #93603e; font-size: 1.1em; text-decoration: none; }
+    :root {
+      --bg: #110f0e;
+      --bg-raised: #181514;
+      --surface: #1d1a18;
+      --line: rgba(242, 236, 230, 0.09);
+      --text: #f2ece6;
+      --muted: #a79d94;
+      --copper: #93603e;
+      --copper-light: #c98a5e;
+      --gold: #c9a84c;
+      --radius: 22px;
+      --max: 1120px;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--copper-light); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .eyebrow {
+      font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin: 0 0 18px;
+    }
+    h1, h2, h3 { font-weight: 500; margin: 0; letter-spacing: -0.01em; }
+    h2 { font-size: clamp(30px, 4.2vw, 46px); line-height: 1.12; }
+    h3 { font-size: 19px; font-weight: 500; }
+    em, .serif { font-family: var(--serif); font-style: italic; font-weight: 500; color: var(--copper-light); }
+    p { margin: 0; }
+    .lead { color: var(--muted); font-size: 19px; }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(17, 15, 14, 0.78);
+      backdrop-filter: saturate(140%) blur(14px);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 500; font-size: 19px; }
+    .brand:hover { text-decoration: none; }
+    .brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 999px; font-weight: 500; font-size: 15px;
+      background: var(--copper); color: #fff;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn:hover { background: #a86d47; text-decoration: none; transform: translateY(-1px); }
+    .nav .btn { padding: 8px 16px; font-size: 14px; }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; padding: 96px 0 72px; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; width: 760px; height: 760px; right: -140px; top: -60px;
+      background: radial-gradient(circle, rgba(201, 138, 94, 0.30) 0%, rgba(147, 96, 62, 0.14) 38%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+    .hero h1 { font-size: clamp(42px, 6.4vw, 76px); line-height: 1.02; letter-spacing: -0.02em; }
+    .hero h1 em { font-size: 1.08em; }
+    .hero .lead { margin-top: 24px; max-width: 520px; }
+    .cta-row { display: flex; align-items: center; flex-wrap: wrap; gap: 18px 22px; margin-top: 36px; }
+    .appstore img { height: 54px; width: auto; }
+    .cta-note { color: var(--muted); font-size: 14px; }
+
+    .phones { position: relative; height: 560px; }
+    .phone {
+      position: absolute; width: 250px; padding: 9px;
+      background: #0b0a09; border-radius: 46px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 40px 80px -20px rgba(0, 0, 0, 0.7);
+    }
+    .phone img { border-radius: 38px; width: 100%; height: auto; aspect-ratio: 601 / 1300; object-fit: cover; }
+    .phones .back { left: 8%; top: 46px; transform: rotate(-7deg); opacity: 0.92; }
+    .phones .front { right: 6%; top: 0; transform: rotate(4deg); }
+
+    /* ---------- Principles ---------- */
+    .principles { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-raised); }
+    .principles .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .principle { padding: 34px 28px; }
+    .principle + .principle { border-left: 1px solid var(--line); }
+    .principle h3 { margin-bottom: 6px; }
+    .principle p { color: var(--muted); font-size: 15px; }
+
+    /* ---------- Sections ---------- */
+    section.block { padding: 112px 0; }
+    .section-head { max-width: 640px; margin-bottom: 56px; }
+    .section-head .lead { margin-top: 18px; }
+
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 30px 28px 32px;
+    }
+    .icon {
+      width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 22px;
+      background: rgba(147, 96, 62, 0.16); color: var(--copper-light);
+    }
+    .icon svg { width: 22px; height: 22px; }
+    .card h3 { margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 15.5px; }
+
+    /* Kai */
+    .kai { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-raised) 100%); overflow: hidden; }
+    .kai .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: center; }
+    .kai .phone { position: relative; margin: 0 auto; width: 280px; }
+    .kai .stage { position: relative; }
+    .kai .stage::before {
+      content: ""; position: absolute; inset: -60px -40px; z-index: 0;
+      background: radial-gradient(circle at 50% 45%, rgba(201, 168, 76, 0.18), transparent 62%);
+    }
+    .kai .stage .phone { z-index: 1; }
+    .ticks { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 14px; }
+    .ticks li { display: flex; gap: 14px; align-items: flex-start; }
+    .ticks svg { flex: none; width: 22px; height: 22px; margin-top: 3px; color: var(--gold); }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+    .gallery figure { margin: 0; }
+    .gallery .phone { position: relative; width: 100%; border-radius: 40px; padding: 8px; }
+    .gallery .phone img { border-radius: 33px; }
+    .gallery figcaption { text-align: center; margin-top: 16px; color: var(--muted); font-size: 15px; }
+
+    /* Pricing */
+    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 900px; }
+    .plan { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px 32px; }
+    .plan.pro {
+      border-color: rgba(201, 138, 94, 0.45);
+      background: linear-gradient(160deg, rgba(147, 96, 62, 0.22), var(--surface) 55%);
+    }
+    .plan .tag { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .plan h3 { font-size: 30px; margin: 8px 0 6px; }
+    .plan > p { color: var(--muted); font-size: 15px; }
+    .plan ul { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 12px; }
+    .plan li { display: flex; gap: 12px; font-size: 15.5px; }
+    .plan li svg { flex: none; width: 20px; height: 20px; margin-top: 3px; color: var(--copper-light); }
+
+    /* Quote */
+    .quote { text-align: center; padding: 120px 0; border-top: 1px solid var(--line); }
+    .quote blockquote {
+      margin: 0 auto; max-width: 860px;
+      font-family: var(--serif); font-style: italic; font-weight: 400;
+      font-size: clamp(28px, 4vw, 44px); line-height: 1.25; color: var(--text);
+    }
+    .quote p { margin: 28px auto 0; max-width: 560px; color: var(--muted); }
+
+    /* Final CTA */
+    .final { padding: 0 0 120px; }
+    .final .panel {
+      position: relative; overflow: hidden; text-align: center;
+      border-radius: 32px; padding: 80px 24px; border: 1px solid var(--line);
+      background: radial-gradient(circle at 50% 0%, rgba(201, 138, 94, 0.28), transparent 60%), var(--bg-raised);
+    }
+    .final img.mark { width: 84px; height: 84px; border-radius: 20px; margin: 0 auto 28px; box-shadow: 0 20px 50px -10px rgba(147, 96, 62, 0.6); }
+    .final .lead { margin: 16px auto 0; max-width: 480px; }
+    .final .cta-row { justify-content: center; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--line); padding: 40px 0 56px; color: var(--muted); font-size: 14px; }
+    footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+    footer nav { display: flex; flex-wrap: wrap; gap: 22px; }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    /* Motion */
+    .rise { opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .rise.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .rise { opacity: 1; transform: none; transition: none; }
+      .btn { transition: none; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 960px) {
+      .hero { padding: 64px 0 48px; }
+      .hero .wrap, .kai .wrap { grid-template-columns: 1fr; gap: 40px; }
+      .hero .copy { text-align: center; }
+      .hero .lead { margin-left: auto; margin-right: auto; }
+      .hero .cta-row { justify-content: center; }
+      .phones { height: 470px; max-width: 420px; width: 100%; margin: 0 auto; }
+      .phone { width: 210px; }
+      .features { grid-template-columns: 1fr 1fr; }
+      .kai .stage { order: 2; }
+      .gallery { grid-template-columns: repeat(4, 220px); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+      .gallery figure { scroll-snap-align: center; }
+      .nav-links a:not(.btn) { display: none; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      section.block { padding: 80px 0; }
+      .principles .wrap { grid-template-columns: 1fr; }
+      .principle { padding: 24px 4px; }
+      .principle + .principle { border-left: 0; border-top: 1px solid var(--line); }
+      .features, .plans { grid-template-columns: 1fr; }
+      .phones { height: 400px; }
+      .phone { width: 172px; padding: 7px; border-radius: 36px; }
+      .phone img { border-radius: 30px; }
+      .phones .back { left: 4%; }
+      .phones .front { right: 4%; }
+      .kai .phone { width: 230px; }
+      .gallery { grid-template-columns: repeat(4, 200px); gap: 18px; }
+      .quote { padding: 88px 0; }
+      .final .panel { padding: 64px 20px; border-radius: 26px; }
+      footer .wrap { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
-  <h1>Seika</h1>
-  <p>Legal documents for the Seika iOS app.</p>
-  <a href="privacy-policy.html">Privacy Policy</a>
-  <a href="terms.html">Terms &amp; Conditions</a>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Seika home">
+        <img src="assets/favicon-64.png" alt="" width="30" height="30" />
+        Seika
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#features">Features</a>
+        <a href="#kai">Kai</a>
+        <a href="#pro">Pro</a>
+        <a href="#support">Support</a>
+        <a class="btn" href="https://apps.apple.com/us/app/seika/id6767049121">Get the app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="copy">
+          <p class="eyebrow">Habit tracker · AI coach · iPhone</p>
+          <h1>Habits that actually <em>stick.</em></h1>
+          <p class="lead">Five-second logging, streaks that forgive a bad day, and Kai — a coach who knows when to push and when to back off.</p>
+          <div class="cta-row">
+            <a class="appstore" href="https://apps.apple.com/us/app/seika/id6767049121" aria-label="Download Seika on the App Store">
+              <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="162" height="54" />
+            </a>
+            <span class="cta-note">Free to download · iPhone · iOS 16 or later</span>
+          </div>
+        </div>
+        <div class="phones" aria-hidden="true">
+          <div class="phone back"><img src="assets/screens/habits.jpg" alt="" width="601" height="1300" /></div>
+          <div class="phone front"><img src="assets/screens/tasks.jpg" alt="" width="601" height="1300" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principles -->
+    <div class="principles">
+      <div class="wrap">
+        <div class="principle">
+          <h3>Five-second logging</h3>
+          <p>Tap and you're done. No daily essays, no forms.</p>
+        </div>
+        <div class="principle">
+          <h3>Streaks done right</h3>
+          <p>Streak freezes and vacation mode for when life happens.</p>
+        </div>
+        <div class="principle">
+          <h3>A coach, not a cheerleader</h3>
+          <p>Kai speaks up when it matters and stays quiet otherwise.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <section class="block" id="features">
+      <div class="wrap">
+        <div class="section-head rise">
+          <p class="eyebrow">What's inside</p>
+          <h2>Everything you're juggling, in <em>one calm place.</em></h2>
+          <p class="lead">Habits, tasks, the thoughts in your head and the meetings on your calendar — with a coach keeping an eye on all of it.</p>
+        </div>
+
+        <div class="features">
+          <article class="card rise">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.6 2.5L16 9.5"/></svg></div>
+            <h3>Habits that fit your life</h3>
+            <p>Daily or weekly habits with sensible targets — 8,000 steps, 2&nbsp;L of water, the gym four times a week. Steps, sleep and workouts can fill in from Apple Health.</p>
+          </article>
+          <article class="card rise">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4 0 7-2.7 7-6.6 0-3.5-2.6-5.9-4.1-8.4-.6 2.1-1.7 3.2-3 3.6.4-2.6-.6-5.1-2.9-6.6-.3 3.6-5 6.1-5 11.2C4 18.3 7.6 21 12 21Z"/></svg></div>
+            <h3>Streaks, trophies &amp; XP</h3>
+            <p>Daily and weekly streaks, freezes for the bad days, and trophies for milestones that matter — from your first habit to a 100-day streak.</p>
+          </article>
+          <article class="card rise">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></div>
+            <h3>Brain Dump</h3>
+            <p>Talk or type whatever's on your mind. Kai pulls out the tasks. Flag the ones you're dreading and they're waiting first thing the next morning.</p>
+          </article>
+          <article class="card rise">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="3"/><path d="m16 10.5 5-3v9l-5-3"/></svg></div>
+            <h3>Meeting notes</h3>
+            <p>Record a meeting and get a transcript, a short summary, key takeaways and action items, ready to add to your tasks.</p>
+          </article>
+          <article class="card rise">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19.5c.6-3.3 3-5.2 6-5.2s5.4 1.9 6 5.2"/><circle cx="17" cy="9" r="2.4"/><path d="M16.5 14.4c2.4.2 4 1.8 4.5 4.6"/></svg></div>
+            <h3>Friends &amp; challenges</h3>
+            <p>Weekly leaderboards, 30-day challenges and accountability partners who hear about it when you check in — or when you don't.</p>
+          </article>
+          <article class="card rise">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><path d="M14 20.5l2.5-3 2 2 2.5-4"/></svg></div>
+            <h3>Widgets, Live Activities &amp; reports</h3>
+            <p>Log from your home or lock screen, follow a challenge in Live Activities, and look back with monthly reports and a Year in Review.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kai -->
+    <section class="block kai" id="kai">
+      <div class="wrap">
+        <div class="stage rise">
+          <div class="phone"><img src="assets/screens/braindump.jpg" alt="Seika's Brain Dump screen with Kai asking you to speak or type whatever is on your mind" width="601" height="1300" loading="lazy" /></div>
+        </div>
+        <div class="rise">
+          <p class="eyebrow">Meet Kai</p>
+          <h2>A coach who knows when to be <em>quiet.</em></h2>
+          <p class="lead" style="margin-top:20px">Kai is the AI coach built into Seika. It helps where it's useful and stays out of the way the rest of the time — no daily essays, no fake hype.</p>
+          <ul class="ticks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Suggests realistic targets when you set up a habit</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Turns a rambling Brain Dump into a clean task list</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Summarizes meetings into takeaways and action items</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Nudges a streak that's at risk, celebrates real milestones</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="block" id="screens">
+      <div class="wrap">
+        <div class="section-head rise">
+          <p class="eyebrow">A look inside</p>
+          <h2>Designed to be <em>opened, not avoided.</em></h2>
+        </div>
+        <div class="gallery">
+          <figure class="rise">
+            <div class="phone"><img src="assets/screens/tasks.jpg" alt="Today screen with a morning greeting and tasks grouped into Personal and Work" width="601" height="1300" loading="lazy" /></div>
+            <figcaption>Today</figcaption>
+          </figure>
+          <figure class="rise">
+            <div class="phone"><img src="assets/screens/braindump.jpg" alt="Brain Dump screen with a microphone button and a text box" width="601" height="1300" loading="lazy" /></div>
+            <figcaption>Brain Dump</figcaption>
+          </figure>
+          <figure class="rise">
+            <div class="phone"><img src="assets/screens/ranking.jpg" alt="Ranking screen with profile level, daily quest, streaks and leaderboard" width="601" height="1300" loading="lazy" /></div>
+            <figcaption>Ranking</figcaption>
+          </figure>
+          <figure class="rise">
+            <div class="phone"><img src="assets/screens/habits.jpg" alt="Habits screen with gym, water and vegetable habits and their progress" width="601" height="1300" loading="lazy" /></div>
+            <figcaption>Habits</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="block" id="pro">
+      <div class="wrap">
+        <div class="section-head rise">
+          <p class="eyebrow">Pricing</p>
+          <h2>Free to start. <em>Pro when you need more.</em></h2>
+        </div>
+        <div class="plans">
+          <div class="plan rise">
+            <span class="tag">Free</span>
+            <h3>Seika</h3>
+            <p>Everything you need to build the habit.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Habits, streaks, trophies and XP</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Tasks, widgets and Apple Health</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Friends, leaderboards and challenges</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>A monthly allowance of Brain Dumps</li>
+            </ul>
+          </div>
+          <div class="plan pro rise">
+            <span class="tag">Seika Pro</span>
+            <h3>Unlimited Kai</h3>
+            <p>Monthly or yearly. Cancel anytime.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Unlimited Brain Dumps</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Unlimited meeting transcription and summaries</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Faster, smarter task extraction</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Priority Kai responses</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section class="quote">
+      <div class="wrap rise">
+        <p class="eyebrow">Who it's for</p>
+        <blockquote>For people who've tried four habit apps and bounced — too gamified, too punishing, or too much journaling.</blockquote>
+        <p>Seika assumes you're an adult who already knows what to do. It just helps you actually do it.</p>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final">
+      <div class="wrap">
+        <div class="panel rise">
+          <img class="mark" src="assets/icon-512.png" alt="Seika app icon" width="84" height="84" loading="lazy" />
+          <h2>Start your first streak <em>today.</em></h2>
+          <p class="lead">No ads. We never sell your data.</p>
+          <div class="cta-row">
+            <a class="appstore" href="https://apps.apple.com/us/app/seika/id6767049121" aria-label="Download Seika on the App Store">
+              <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="162" height="54" loading="lazy" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="support">
+    <div class="wrap">
+      <a class="brand" href="#top"><img src="assets/favicon-64.png" alt="" width="30" height="30" />Seika</a>
+      <nav aria-label="Footer">
+        <a href="mailto:benschumacher15@gmail.com?subject=Seika%20support">Support</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </nav>
+      <span>© 2026 Ben Schumacher</span>
+    </div>
+  </footer>
+
+  <script>
+    // Fade sections in as they scroll into view (skipped when reduced motion is on).
+    (function () {
+      var items = document.querySelectorAll('.rise');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
